@@ -47,7 +47,7 @@ The full list of endpoints wrappers is:
   - `wl_sensor_activity()` for `/sensor-activity` &
     `sensor-activity/{sensor-ids}` endpoints
   - `wl_sensor_catalog()` for `/sensor-catalog` endpoint
-  - `wl_current()` for `/current/{station-id}` endpoint endpoint
+  - `wl_current()` for `/current/{station-id}` endpoint
   - `wl_historic()` for `/historic/{station-id}` endpoint
 
 ### Parser
@@ -71,7 +71,7 @@ can be easily generated from `POSIXct` objects, e.g.
 
 ``` r
 as.integer(Sys.time())
-#> [1] 1607960768
+#> [1] 1607966371
 ```
 
 gives the timestamp of the current time.

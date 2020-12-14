@@ -54,7 +54,7 @@ The full list of endpoints wrappers is:
 * `wl_sensors()` for `/sensors` & `sensors/{sensor-ids}` endpoints
 * `wl_sensor_activity()` for `/sensor-activity` & `sensor-activity/{sensor-ids}` endpoints
 * `wl_sensor_catalog()` for  `/sensor-catalog` endpoint
-* `wl_current()` for  `/current/{station-id}` endpoint endpoint
+* `wl_current()` for  `/current/{station-id}` endpoint
 * `wl_historic()` for `/historic/{station-id}` endpoint
 
 ### Parser
