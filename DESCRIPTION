@@ -1,0 +1,25 @@
+Package: rweatherlink
+Title: An R Client for the Weatherlink API
+Version: 0.1.0
+Authors@R: 
+    c(person(given = "Eduard", family = "Szöcs", 
+        role = c("aut", "cre"), 
+        email = "eduard.szoecs@basf.com"),
+      person("BASF SE", role = "cph"))
+Maintainer: Eduard Szöcs <eduard.szoecs@basf.com>
+Description: An R client for the weatherlink API <https://weatherlink.github.io/v2-api/api-reference>.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
+Suggests: 
+    testthat
+Imports: 
+    purrr,
+    httr,
+    digest,
+    jsonlite,
+    magrittr,
+    data.table,
+    dplyr
