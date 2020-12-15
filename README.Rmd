@@ -57,7 +57,7 @@ The full list of endpoints wrappers is:
 * `wl_current()` for  `/current/{station-id}` endpoint
 * `wl_historic()` for `/historic/{station-id}` endpoint
 
-### Parser
+### Parsers
 
 For each of the listed functions (except `wl_sensor_catalog()`) we provide 
 (opinionated) convenience parsers, that parse the return value into a nice `data.frame`.
@@ -70,6 +70,7 @@ wl_stations() %>% wl_parse()
 wl_sensors() %>% wl_parse()
 ```
 
+These parsers are in an experimental stage.
 
 ### Timestamps
 

@@ -22,13 +22,16 @@ wl_parse <- function(x, ...) {
 wl_parse.default <- function(x, ...) {
   warning("No matching parsing method for object of class '",
           class(x)[[1]], "' found. Returning object."
-          )
+  )
   x
 }
 
 #' @export
 #' @importFrom data.table setDF rbindlist
 wl_parse.wl_stations <- function(x, ...) {
+  if (length(x$stations) == 0)
+    stop("No stations to parse.")
+
   suppressWarnings({
     out <- data.table::setDF(data.table::rbindlist(x$stations, fill = TRUE))
   })
@@ -39,13 +42,15 @@ wl_parse.wl_stations <- function(x, ...) {
   out <- out %>%
     mutate(elevation_m = .data$elevation / 3.2808,
            registered_date_utc = as.POSIXct(.data$registered_date,
-            origin = "1970-01-01",  tz = "UTC"))
+                                            origin = "1970-01-01",  tz = "UTC"))
   return(out)
 }
 
 #' @export
 #' @importFrom data.table setDF rbindlist
 wl_parse.wl_nodes <- function(x, ...) {
+  if (length(x$nodes) == 0)
+    stop("No nodes to parse.")
   suppressWarnings({
     out <- data.table::setDF(data.table::rbindlist(x$nodes, fill = TRUE))
   })
@@ -57,6 +62,8 @@ wl_parse.wl_nodes <- function(x, ...) {
 #' @export
 #' @importFrom data.table setDF rbindlist
 wl_parse.wl_sensors <- function(x, ...) {
+  if (length(x$sensors) == 0)
+    stop("No sensors to parse.")
   suppressWarnings({
     out <- data.table::setDF(data.table::rbindlist(x$sensors, fill = TRUE))
   })
@@ -65,16 +72,18 @@ wl_parse.wl_sensors <- function(x, ...) {
 
   out <- out %>%
     mutate(elevation_m = .data$elevation / 3.2808,
-      created_date_utc = as.POSIXct(.data$created_date,
-        origin = "1970-01-01",  tz = "UTC"),
-      modified_date_utc = as.POSIXct(.data$modified_date,
-        origin = "1970-01-01",  tz = "UTC"))
+           created_date_utc = as.POSIXct(.data$created_date,
+                                         origin = "1970-01-01",  tz = "UTC"),
+           modified_date_utc = as.POSIXct(.data$modified_date,
+                                          origin = "1970-01-01",  tz = "UTC"))
 
   return(out)
 }
 
 #' @importFrom data.table setDF rbindlist
 parse_sensor <- function(sensor) {
+  if (length(sensor$data) == 0)
+    stop("No data to parse.")
   suppressWarnings({
     data <- data.table::setDF(data.table::rbindlist(sensor$data, fill = TRUE))
   })

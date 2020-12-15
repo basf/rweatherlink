@@ -64,6 +64,8 @@ wl_stations() %>% wl_parse()
 wl_sensors() %>% wl_parse()
 ```
 
+These parsers are in an experimental stage.
+
 ### Timestamps
 
 `wl_historic()` needs unix-timestamps as input for start and end. These
@@ -71,7 +73,7 @@ can be easily generated from `POSIXct` objects, e.g.
 
 ``` r
 as.integer(Sys.time())
-#> [1] 1607966371
+#> [1] 1608050438
 ```
 
 gives the timestamp of the current time.
